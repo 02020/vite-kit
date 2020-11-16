@@ -1,0 +1,540 @@
+{
+  "msg": "成功",
+  "code": "200",
+  "cost_time": "73",
+  "right_data": [
+    [
+      {
+        "attribute_cn": "信用主体名称",
+        "attribute_id": "OBJECT_NAME",
+        "content": "厦门闽矿测绘院"
+      },
+      {
+        "attribute_cn": "社会信用代码",
+        "attribute_id": "CREDIT_CODE",
+        "content": "91350203155594333K"
+      },
+      {
+        "attribute_cn": "事件生效时间",
+        "attribute_id": "BEGIN_TIME",
+        "content": "2019-06-12"
+      },
+      {
+        "attribute_cn": "事件失效时间",
+        "attribute_id": "END_TIME",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "红名单事项名称",
+        "attribute_id": "HMDSXMC",
+        "content": "守合同重信用企业红名单"
+      },
+      {
+        "attribute_cn": "列入名单事由",
+        "attribute_id": "LRMDSY",
+        "content": "守合同重信用企业红名单"
+      },
+      {
+        "attribute_cn": "列入名单依据",
+        "attribute_id": "LRMDYJ",
+        "content": "守合同重信用企业红名单"
+      },
+      {
+        "attribute_cn": "列入名单日期",
+        "attribute_id": "LRMDRQ",
+        "content": "2019-06-12"
+      },
+      {
+        "attribute_cn": "目录编号",
+        "attribute_id": "BUSINESS_ID",
+        "content": "SCJJ_00_0024"
+      },
+      {
+        "attribute_cn": "信息产生时间",
+        "attribute_id": "BUSINESS_CREATE_DATE",
+        "content": "2019-06-12"
+      },
+      {
+        "attribute_cn": "公示期限",
+        "attribute_id": "EXPIRE_DAYS",
+        "content": "长期"
+      },
+      {
+        "attribute_cn": "当前状态",
+        "attribute_id": "DQZT",
+        "content": "正常"
+      },
+      {
+        "attribute_cn": "企业注册号",
+        "attribute_id": "QYZCH",
+        "content": "350203000002700"
+      },
+      {
+        "attribute_cn": "认定（决定）机构",
+        "attribute_id": "RDJG",
+        "content": "厦门市市场监督管理局"
+      },
+      {
+        "attribute_cn": "状态变更日期",
+        "attribute_id": "ZTBGRQ",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "对象类型",
+        "attribute_id": "OBJECT_TYPE",
+        "content": "法人和其他组织"
+      },
+      {
+        "attribute_cn": "法定代表人姓名",
+        "attribute_id": "FDDBRXM",
+        "content": "朱振齐"
+      },
+      {
+        "attribute_cn": "组织机构代码",
+        "attribute_id": "OBJECT_ID",
+        "content": "155594333"
+      },
+      {
+        "attribute_cn": "备注",
+        "attribute_id": "BZ",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "信用类别",
+        "attribute_id": "GRADE",
+        "content": "良好"
+      },
+      {
+        "attribute_cn": "业务主键",
+        "attribute_id": "ID",
+        "content": "1c8ff38ec580434a95f8d9bfb0820109"
+      }
+    ],
+    [
+      {
+        "attribute_cn": "行政相对人名称",
+        "attribute_id": "OBJECT_NAME",
+        "content": "厦门闽矿测绘院"
+      },
+      {
+        "attribute_cn": "行政相对人代码_1(统一社会信用代码)",
+        "attribute_id": "CREDIT_CODE",
+        "content": "91350203155594333K"
+      },
+      {
+        "attribute_cn": "行政相对人代码_2 (工商注册号)",
+        "attribute_id": "QYZCH",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政相对人代码_3(组织机构代码)",
+        "attribute_id": "OBJECT_ID",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政相对人代码_4(税务登记号)",
+        "attribute_id": "SWDJH",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政相对人代码_5(事业单位证书号)",
+        "attribute_id": "XZXDRDM_5",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政相对人代码_6(社会组织登记证号)",
+        "attribute_id": "XZXDRDM_6",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "法定代表人",
+        "attribute_id": "FDDBRXM",
+        "content": "朱振齐"
+      },
+      {
+        "attribute_cn": "行政许可决定文书名称",
+        "attribute_id": "XKWJMC",
+        "content": "基础地理信息使用审批"
+      },
+      {
+        "attribute_cn": "行政许可决定文书号",
+        "attribute_id": "XKWJBH",
+        "content": "厦测地信决字1010420180485号"
+      },
+      {
+        "attribute_cn": "许可类别",
+        "attribute_id": "SPLB",
+        "content": "普通"
+      },
+      {
+        "attribute_cn": "许可证书名称",
+        "attribute_id": "XKZSMC",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "许可编号",
+        "attribute_id": "XKBH",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "许可内容",
+        "attribute_id": "XKNR",
+        "content": "2018年11月02日,你单位《关于申请使用厦门市基础地理信息数据的申请》（编号：1010420180485）悉。依照《中华人民共和国行政许可法》、《中华人民共和国测绘成果管理条例》、《福建省测绘管理条例》和《国家基础测绘成果资料使用审批办法》的规定，准予使用厦门市基础地理信息数据。"
+      },
+      {
+        "attribute_cn": "许可决定日期",
+        "attribute_id": "BUSINESS_CREATE_DATE",
+        "content": "2018-11-02"
+      },
+      {
+        "attribute_cn": "有效期自",
+        "attribute_id": "BEGIN_TIME",
+        "content": "2018-11-02"
+      },
+      {
+        "attribute_cn": "有效期至",
+        "attribute_id": "END_TIME",
+        "content": "2118-11-02"
+      },
+      {
+        "attribute_cn": "许可机关",
+        "attribute_id": "XKJG",
+        "content": "厦门市测绘与基础地理信息中心"
+      },
+      {
+        "attribute_cn": "许可机关统一社会信用代码",
+        "attribute_id": "XKJGTYSTYDM",
+        "content": "1135020000413935XJ"
+      },
+      {
+        "attribute_cn": "当前状态",
+        "attribute_id": "DJZT",
+        "content": "0"
+      },
+      {
+        "attribute_cn": "数据来源单位",
+        "attribute_id": "SJLYDW",
+        "content": "厦门市国土资源与房产管理局"
+      },
+      {
+        "attribute_cn": "数据来源单位统一社会信用代码",
+        "attribute_id": "SJLYDWTYSHXYDM",
+        "content": "1135020000413935XJ"
+      },
+      {
+        "attribute_cn": "备注",
+        "attribute_id": "BZ",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政许可ID",
+        "attribute_id": "XKID",
+        "content": "厦测地信决字1010420180485号"
+      },
+      {
+        "attribute_cn": "许可事项名称",
+        "attribute_id": "XKSXMC",
+        "content": "基础地理信息使用审批"
+      },
+      {
+        "attribute_cn": "申报事项名称",
+        "attribute_id": "SBSXMC",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "对象类型",
+        "attribute_id": "OBJECT_TYPE",
+        "content": "法人和其他组织"
+      },
+      {
+        "attribute_cn": "目录编号",
+        "attribute_id": "BUSINESS_ID",
+        "content": "GTFC_00_0068"
+      },
+      {
+        "attribute_cn": "公示期限",
+        "attribute_id": "EXPIRE_DAYS",
+        "content": "长期"
+      },
+      {
+        "attribute_cn": "信用类别",
+        "attribute_id": "GRADE",
+        "content": "基础"
+      },
+      {
+        "attribute_cn": "业务主键",
+        "attribute_id": "ID",
+        "content": "d45c589118204f8d9014f76acbfff1dc"
+      }
+    ],
+    [
+      {
+        "attribute_cn": "行政相对人名称",
+        "attribute_id": "OBJECT_NAME",
+        "content": "厦门闽矿测绘院"
+      },
+      {
+        "attribute_cn": "行政相对人代码_1(统一社会信用代码)",
+        "attribute_id": "CREDIT_CODE",
+        "content": "91350203155594333K"
+      },
+      {
+        "attribute_cn": "行政相对人代码_2 (工商注册号)",
+        "attribute_id": "QYZCH",
+        "content": "350203000002700"
+      },
+      {
+        "attribute_cn": "行政相对人代码_3(组织机构代码)",
+        "attribute_id": "OBJECT_ID",
+        "content": "155594333"
+      },
+      {
+        "attribute_cn": "行政相对人代码_4(税务登记号)",
+        "attribute_id": "SWDJH",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政相对人代码_5(事业单位证书号)",
+        "attribute_id": "XZXDRDM_5",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政相对人代码_6(社会组织登记证号)",
+        "attribute_id": "XZXDRDM_6",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "法定代表人",
+        "attribute_id": "FDDBRXM",
+        "content": "朱振齐"
+      },
+      {
+        "attribute_cn": "行政许可决定文书名称",
+        "attribute_id": "XKWJMC",
+        "content": "使用属于国家秘密的基础测绘成果通知书"
+      },
+      {
+        "attribute_cn": "行政许可决定文书号",
+        "attribute_id": "XKWJBH",
+        "content": "厦测成果决字〔2018〕33号"
+      },
+      {
+        "attribute_cn": "许可类别",
+        "attribute_id": "SPLB",
+        "content": "普通"
+      },
+      {
+        "attribute_cn": "许可证书名称",
+        "attribute_id": "XKZSMC",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "许可编号",
+        "attribute_id": "XKBH",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "许可内容",
+        "attribute_id": "XKNR",
+        "content": "使用属于国家秘密的测绘成果"
+      },
+      {
+        "attribute_cn": "许可决定日期",
+        "attribute_id": "BUSINESS_CREATE_DATE",
+        "content": "2018-09-17"
+      },
+      {
+        "attribute_cn": "有效期自",
+        "attribute_id": "BEGIN_TIME",
+        "content": "2018-09-17"
+      },
+      {
+        "attribute_cn": "有效期至",
+        "attribute_id": "END_TIME",
+        "content": "2099-12-31"
+      },
+      {
+        "attribute_cn": "许可机关",
+        "attribute_id": "XKJG",
+        "content": "厦门市国土资源与房产管理局"
+      },
+      {
+        "attribute_cn": "许可机关统一社会信用代码",
+        "attribute_id": "XKJGTYSTYDM",
+        "content": "1135020000413935XJ"
+      },
+      {
+        "attribute_cn": "当前状态",
+        "attribute_id": "DJZT",
+        "content": "0"
+      },
+      {
+        "attribute_cn": "数据来源单位",
+        "attribute_id": "SJLYDW",
+        "content": "厦门市国土资源与房产管理局"
+      },
+      {
+        "attribute_cn": "数据来源单位统一社会信用代码",
+        "attribute_id": "SJLYDWTYSHXYDM",
+        "content": "1135020000413935XJ"
+      },
+      {
+        "attribute_cn": "备注",
+        "attribute_id": "BZ",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "行政许可ID",
+        "attribute_id": "XKID",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "许可事项名称",
+        "attribute_id": "XKSXMC",
+        "content": "属于国家秘密的基础测绘成果资料使用审批"
+      },
+      {
+        "attribute_cn": "申报事项名称",
+        "attribute_id": "SBSXMC",
+        "content": "属于国家秘密的基础测绘成果资料使用审批"
+      },
+      {
+        "attribute_cn": "对象类型",
+        "attribute_id": "OBJECT_TYPE",
+        "content": "法人和其他组织"
+      },
+      {
+        "attribute_cn": "目录编号",
+        "attribute_id": "BUSINESS_ID",
+        "content": "GTFC_00_0025"
+      },
+      {
+        "attribute_cn": "公示期限",
+        "attribute_id": "EXPIRE_DAYS",
+        "content": "长期"
+      },
+      {
+        "attribute_cn": "信用类别",
+        "attribute_id": "GRADE",
+        "content": "基础"
+      },
+      {
+        "attribute_cn": "业务主键",
+        "attribute_id": "ID",
+        "content": "9881e625ba03425c962a0727fb059601"
+      }
+    ],
+    [
+      {
+        "attribute_cn": "信用主体名称",
+        "attribute_id": "OBJECT_NAME",
+        "content": "厦门闽矿测绘院"
+      },
+      {
+        "attribute_cn": "社会信用代码",
+        "attribute_id": "CREDIT_CODE",
+        "content": "91350203155594333K"
+      },
+      {
+        "attribute_cn": "事件生效时间",
+        "attribute_id": "BEGIN_TIME",
+        "content": "2017-11-21"
+      },
+      {
+        "attribute_cn": "事件失效时间",
+        "attribute_id": "END_TIME",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "监督检查机关",
+        "attribute_id": "JDJCDW",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "目录编号",
+        "attribute_id": "BUSINESS_ID",
+        "content": "SCJJ_00_0010"
+      },
+      {
+        "attribute_cn": "信息产生时间",
+        "attribute_id": "BUSINESS_CREATE_DATE",
+        "content": "2017-11-21"
+      },
+      {
+        "attribute_cn": "公示期限",
+        "attribute_id": "EXPIRE_DAYS",
+        "content": "长期"
+      },
+      {
+        "attribute_cn": "企业注册号",
+        "attribute_id": "QYZCH",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "检查事项名称",
+        "attribute_id": "JCSXMC",
+        "content": "测绘资质单位监督检查"
+      },
+      {
+        "attribute_cn": "监督检查形式",
+        "attribute_id": "JDJCXS",
+        "content": "双随机"
+      },
+      {
+        "attribute_cn": "监督检查情况",
+        "attribute_id": "JDJCQK",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "对象类型",
+        "attribute_id": "OBJECT_TYPE",
+        "content": "法人和其他组织"
+      },
+      {
+        "attribute_cn": "法定代表人姓名",
+        "attribute_id": "FDDBRXM",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "监督检查内容",
+        "attribute_id": "JDJCNR",
+        "content": "测绘资质单位监督检查"
+      },
+      {
+        "attribute_cn": "组织机构代码",
+        "attribute_id": "OBJECT_ID",
+        "content": "155594333"
+      },
+      {
+        "attribute_cn": "监督检查日期",
+        "attribute_id": "JDJCRQ",
+        "content": "2017-11-21"
+      },
+      {
+        "attribute_cn": "监督检查结果",
+        "attribute_id": "JDJCJG",
+        "content": "合格"
+      },
+      {
+        "attribute_cn": "备注",
+        "attribute_id": "BZ",
+        "content": "无"
+      },
+      {
+        "attribute_cn": "信用类别",
+        "attribute_id": "GRADE",
+        "content": "基础"
+      },
+      {
+        "attribute_cn": "监督检查人员",
+        "attribute_id": "JDJCRY",
+        "content": "叶松林,钱少猛"
+      },
+      {
+        "attribute_cn": "业务主键",
+        "attribute_id": "ID",
+        "content": "74B695B98EEC7D78E055000000000001"
+      }
+    ]
+  ]
+}

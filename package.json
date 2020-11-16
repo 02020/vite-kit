@@ -1,0 +1,33 @@
+{
+  "name": "vite-esri",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "docs": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "ts-doc": "node build/index.js doc",
+    "ts": "tsc -w",
+    "lint": "tslint './esri_ts/*.ts'"
+  },
+  "dependencies": {
+    "ramda": "^0.27.1",
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.0-beta.3"
+  },
+  "devDependencies": {
+    "@types/arcgis-js-api": "^4.16.0",
+    "@types/lodash-es": "^4.17.3",
+    "@vue/compiler-sfc": "^3.0.0",
+    "esri-loader": "^2.15.0",
+    "licia": "^1.25.0",
+    "lodash-es": "^4.17.15",
+    "rimraf": "^3.0.2",
+    "semver": "^7.3.2",
+    "tailwindcss": "^1.8.10",
+    "typedoc": "^0.19.1",
+    "typescript": "^4.0.3",
+    "vite": "^1.0.0-rc.4",
+    "vitepress": "^0.6.0"
+  }
+}

@@ -1,0 +1,14 @@
+node_modules
+.DS_Store
+dist
+ 
+*.local
+docs-ts
+.svn
+
+docs/images
+docs/Vue3
+
+__docs
+
+src/__others
