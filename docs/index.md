@@ -1,5 +1,8 @@
 # KPI
 
+##
+[看云](https://www.kancloud.cn/ztgis/gisboot/1817193)
+
 ## GitHub
 
 ### git.zip 文件下载
@@ -7,7 +10,9 @@
 [https://gh.api.99988866.xyz/](https://gh.api.99988866.xyz/)
 
 [30 seconds of code](https://www.html.cn/30-seconds-of-code/#pick)
-
+[JavaScript的33个概念](https://github.com/stephentian/33-js-concepts)
+[源码学习](https://zhuanlan.zhihu.com/p/82155060)
+[](https://lxchuan12.gitee.io/)
 ## API
 
 [](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object)
@@ -65,3 +70,10 @@ function tap(x, fn = x => x) {
 `npm i deepmerge @fext/vue-use @vue/composition-api`
 
 `vee-validate`
+
+
+
+
+[](https://yanhaijing.com/es5/#4)
+
+[base64](https://www.zhangxinxu.com/sp/base64.html)

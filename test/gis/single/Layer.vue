@@ -13,13 +13,12 @@
 
 <script>
 import { ref, watchEffect } from 'vue'
-import { layerList } from '../../mock/92'
+
 
 let editor
 
 const actionList = [
   { key: 'print', title: '打印' },
-  { key: 'add', title: '加载图层' },
   { key: 'edit', title: '编辑-feature' },
 ]
 
@@ -28,14 +27,7 @@ const handle = {
     let layers = gis.view.map.layers.map((x) => x)
     console.log(layers)
   },
-  add: () => {
-    console.log(layerList)
-    layerList.forEach((x) => {
-      x.group = 'xm'
-      x.copyright = x.id
-    })
-    gis.addMany(layerList)
-  },
+
   edit: () => {
     let id = 'edit'
     let token =

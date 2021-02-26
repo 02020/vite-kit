@@ -1,6 +1,4 @@
-const token = 'Lsfi9PoDuL1fe_Pt2ooTUejQGw_ZKZEHhpoLmrRk30aEIiBMcnssf8dEPYVt0shw';
-
-const otherLayers = [
+const layerList = [
   {
     name: '要素-商品房',
     url: 'http://222.76.242.138/arcgis/rest/services/ZTT/SPFLP/MapServer/0',
@@ -61,23 +59,24 @@ const otherLayers = [
   },
 ];
 
+
 const demList = [
   {
     name: '厦门市DEM',
-    url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DEMMAP/MapServer\t',
+    url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DEMMAP/MapServer',
     layerType: 'DEM',
     type: 'tile',
     publishYear: '2019',
-    token,
+
   },
-  {
-    name: '厦门市DEM注记',
-    url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DEMMAP_CVA/MapServer',
-    layerType: 'DEM',
-    type: 'tile',
-    publishYear: '2019',
-    token,
-  },
+  // {
+  //   name: '厦门市DEM注记',
+  //   url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DEMMAP_CVA/MapServer',
+  //   layerType: 'DEM',
+  //   type: 'tile',
+  //   publishYear: '2019',
+
+  // },
 ];
 
 const dlgList = [
@@ -85,15 +84,11 @@ const dlgList = [
     id: '厦门市DLG',
     url: 'http://222.76.242.138/arcgis/rest/services/CGCS_XMMAP/MapServer',
     type: 'tile',
-    publishYear: '2019',
-    token,
   },
   {
     id: '厦门市DLG注记',
     url: 'http://222.76.242.138/arcgis/rest/services/CGCS_XMMAP_CVA/MapServer',
     type: 'tile',
-    publishYear: '2019',
-    token,
   },
 ];
 
@@ -102,46 +97,44 @@ let domList = [
     name: '厦门市2016年DOM',
     url: 'http://222.76.242.138/arcgis/rest/services/DOM2016/MapServer',
     type: 'tile',
-    token,
   },
   {
     name: '厦门市2017年DOM',
     url: 'http://222.76.242.138/arcgis/rest/services/DOM2017/MapServer',
     type: 'tile',
-    token,
   },
   {
     name: '厦门市2018年DOM',
     url: 'http://222.76.242.138/arcgis/rest/services/DOM2018/MapServer',
     type: 'tile',
-    token,
   },
   {
     name: '厦门市2019年DOM',
     url: 'http://222.76.242.138/arcgis/rest/services/DOM2019/MapServer',
     type: 'tile',
-    token,
   },
-  {
-    id: '厦门市2019年DOM',
-    url: 'http://222.76.242.138/arcgis/rest/services/DOM2019/MapServer',
-    type: 'tile',
-    token,
-  },
+ 
   {
     name: '厦门市DOM注记',
     url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DOMMAP_CIA/MapServer',
-    layerType: 'DOM',
     type: 'tile',
-    publishYear: '2019',
-    token,
   },
 ];
 
-let baseList = [];
-baseList
-  .concat(domList.map((x) => x['layerType'] == 'DOM'))
-  .concat(dlgList.map((x) => x['layerType'] == 'DLG'))
-  .concat(dlgList.map((x) => x['layerType'] == 'DEM'));
 
-export { baseList, domList, dlgList, demList };
+domList = [
+  {
+    url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DOMMAP/MapServer',
+    name: '影像',
+    type: 'tile',
+  },
+  {
+    url: 'http://222.76.242.138/arcgis/rest/services/CGCS_DOMMAP_CIA/MapServer',
+    name: '注记',
+    type: 'tile',
+  },
+];
+
+let baseList = dlgList;
+
+export default { baseList, domList, dlgList, demList, layerList };

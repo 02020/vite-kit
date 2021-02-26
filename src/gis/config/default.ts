@@ -1,3 +1,5 @@
+import { modules, formatToPoint } from '../core';
+
 export const setting = {
   container: 'viewMap',
   widgets: {},
@@ -6,11 +8,10 @@ export const setting = {
 };
 
 export const init92 = {
-  zoom: 6,
+  zoom: 9,
   tileInfo: false,
-  center: '55555,5000', // 不起作用，需要手动定位
+  center: '55555,5000', // 92坐标系需要手动定位
   extent: '36920.6636,-2179.8415,93151.5846,56361.4883',
-  wkid: 4490,
   wkt:
     'PROJCS["92xiamen",GEOGCS["GCS_Krasovsky_1940",DATUM["D_Krasovsky_1940",SPHEROID["Krasovsky_1940",6378245.0,298.3]],PRIMEM["Greenwich",0.0],UNIT["Degree",0.0174532925199433]],PROJECTION["Gauss_Kruger"],PARAMETER["False_Easting",100000.0],PARAMETER["False_Northing",-2700000.0],PARAMETER["Central_Meridian",118.5],PARAMETER["Scale_Factor",1.0],PARAMETER["Latitude_Of_Origin",0.0],UNIT["Meter",1.0]]',
 };
@@ -55,4 +56,34 @@ export const popup = {
   highlightEnabled: false,
 
   alignment: 'top-right',
+};
+
+// 设置MapViewProperties
+export const getViewProperties = (param, { container, map, spatialReference }) => {
+  const { extent, zoom, center } = param;
+  // 弹窗配置
+  const viewProperties: any = { container, map, popup };
+
+  // : __esri.MapViewProperties
+
+  viewProperties.spatialReference = spatialReference;
+
+  if (extent) {
+    viewProperties.extent = new modules.Extent({
+      ...formatToPoint(extent),
+      spatialReference,
+    });
+  }
+
+  zoom && (viewProperties.zoom = zoom);
+  if (center) {
+    let centers = center.split(',').map(parseFloat);
+    viewProperties.center = new modules.Point({
+      longitude: centers[0],
+      latitude: centers[1],
+      spatialReference,
+    });
+  }
+
+  return viewProperties;
 };

@@ -11,3 +11,15 @@ uni.showToast({
 });
 
 ```
+
+
+```html
+    <view class="uni-fab uni-fab--leftBottom" v-show="visibleTip">
+      <view
+        class="uni-fab__circle uni-fab__plus uni-fab__circle--leftBottom"
+        @click="onClickLeftBottom"
+        >开始
+      </view>
+    </view>
+
+```

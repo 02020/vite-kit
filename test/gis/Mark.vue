@@ -1,22 +1,32 @@
 <template>
   <div class="flex space-x-1 bg-gray-100 p-1 rounded">
-    <div class="m-1 rounded cursor-pointer bg-yellow-300" @click="init">标绘</div>
+    <div class="m-1 rounded cursor-pointer bg-yellow-300" @click="init">
+      标绘
+    </div>
 
     <div
       class="p-1 bg-gray-400 cursor-pointer"
       v-for="item in actionList"
       :key="item.key"
       @click="onClick(item)"
-    >{{item.title}}</div>
+    >
+      {{ item.title }}
+    </div>
 
     <div
       class="p-1 bg-gray-400 cursor-pointer"
       v-for="item in createList"
       :key="item.key"
       @click="onClickCreate(item)"
-    >{{item.title}}</div>
+    >
+      {{ item.title }}
+    </div>
 
-    <div class="absolute bg-gray-200" style="top:100px;left:0px;" v-show="visible">
+    <div
+      class="absolute bg-gray-200"
+      style="top: 100px; left: 0px"
+      v-show="visible"
+    >
       <div ref="domPoint">domPoint</div>
       <div ref="domPolyline">domPolyline</div>
       <div ref="domPolygon">domPolygon</div>
@@ -42,8 +52,13 @@ const actionList = [{ key: 'm', title: '量测' }]
 let sketch = null
 
 export default {
-  name: 'Demo',
+  name: 'Mark',
   components: {},
+  mounted() {
+    console.log('mark')
+    // const m = gis.widgets.Measurement
+    // m.activeTool = 'area'
+  },
   setup(props, { emit }) {
     const product = reactive({
       firstName: 'First Product',

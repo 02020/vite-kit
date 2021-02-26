@@ -38,11 +38,11 @@ const axios = (axios) => {
     }
   );
 
-  instance.factory = (keyList, keys) => {
+  instance.factory = (option, keyList, keys) => {
     return keyList.reduce((acc, key) => {
       acc[key[0]] = (data) => {
         const url = keys[key[0]];
-        return instance({ method: 'post', url, data });
+        return instance(Object.assign({}, option, { method: 'post', url, data }));
       };
       return acc;
     }, {});

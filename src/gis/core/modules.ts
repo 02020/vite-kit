@@ -66,10 +66,12 @@ interface Modules {
   Query?: __esri.QueryConstructor;
   Content?: __esri.ContentConstructor;
   config?: __esri.config;
+  urlUtils?: __esri.urlUtils;
 }
 
 var defaultModulesPath = [
   'esri/config',
+  'esri/core/urlUtils',
   'esri/core/Collection',
   'esri/identity/IdentityManager',
   'esri/Basemap',

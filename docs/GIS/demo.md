@@ -29,3 +29,19 @@ const demo2000 = {
 };
 
 ```
+
+
+
+```ts
+/**
+ * 简易判断是不是厦门范围内的经纬度
+ * @param {*} x 经度
+ * @param {*} y 纬度
+ */
+export const isLatAndLog = (x, y) => {
+  return x.toString().indexOf(".") == 3 && y.toString().indexOf(".") == 2;
+}
+
+
+    
+```

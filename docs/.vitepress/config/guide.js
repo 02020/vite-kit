@@ -21,7 +21,7 @@ module.exports = [
   {
     text: 'seconds',
     children: [
-      { text: 'vue', link: '/guide/seconds' },
+      { text: '30s', link: '/guide/seconds' },
       { text: 'adapter', link: '/guide/seconds-adapter' },
     ],
   },

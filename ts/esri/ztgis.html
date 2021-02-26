@@ -2,7 +2,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1,user-scalable=no"/>
-    <title>ArcGIS 4.15 TypeScript Demo</title>
+    <title>ArcGIS JSAPI 4.15 TypeScript Demo</title>
     <style>
       html,
       body,
@@ -13,24 +13,29 @@
         width: 100%;
       }
     </style>
+    <link rel="stylesheet" href="http://www.ztgis.com:8868/arcgis_js_api/library/4.15/esri/themes/light/main.css">
     <link rel="stylesheet" href="http://g.com/esri/4.15/esri/themes/light/main.css">
+    <!-- <link rel="stylesheet" href="https://js.arcgis.com/4.18/esri/themes/light/main.css"> -->
+
+    
     <script>
       var locationPath = location.pathname.replace(/\/[^/]*$/, "");
       window.dojoConfig = {
         packages: [
           {
             name: "app",
-            location: locationPath + "/dist"
+            location: locationPath + "/app"
           }
         ]
       };
     </script>
+    <!-- <script src="http://www.ztgis.com:8868/arcgis_js_api/library/4.15/"></script> -->
     <script src="http://g.com/esri/4.15/"></script>
+    <!-- <script src="https://js.arcgis.com/4.18/"></script> -->
   </head>
   <body>
     <div id="viewDiv"></div>
-    <script>
-    let app = "app/main";
-    require([app]);</script>
+    <!-- <script>require(["app/shape"]);</script> -->
+    <script>require(["app/main-p"]);</script>
   </body>
 </html>

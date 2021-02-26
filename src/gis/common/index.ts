@@ -55,6 +55,7 @@ const onEventHandler = (view: __esri.MapView) => {
   };
 
   return {
+    withEvent,
     /**
      * 鼠标移开事件
      */
@@ -80,19 +81,17 @@ const onEventHandler = (view: __esri.MapView) => {
      * 监听鼠标点击事件
      * @param cb 
      */
-    onClick: (cb) => {
+    onClick: (graphic, cb) => {
       withEvent('click', hitTest(cb));
     },
     /**
      * 监听鼠标移动事件
      * @param cb 
      */
-    onMove: (cb) => {
+    onMove: (graphic, cb) => {
       withEvent('pointer-move', hitTest(cb));
     },
 
-    withEvent,
-    
     /**
      * 移除指定事件或所有
      * @param name 事件名称

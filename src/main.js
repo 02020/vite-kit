@@ -1,19 +1,13 @@
-/** @format */
-
-import { createApp } from 'vue';
+import { createApp, h } from 'vue';
 import App from './App.vue';
 import './index.css';
-
-import Test from './components/hello'
 
 import router from './router';
 
 const app = createApp(App);
-app.use(router).use(Test);
+app.use(router)
 app.mount('#app');
 
 window.print = (...args) => {
   console.log(JSON.stringify(args));
 };
-
-

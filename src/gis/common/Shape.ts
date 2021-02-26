@@ -83,6 +83,7 @@ export const createGraphic = (view, geometry, attributes?, symbol?) => {
       geometry: { x: parseFloat(geometry.lng), y: parseFloat(geometry.lat) },
     });
   } else if ('attributes' in geometry && 'geometry' in geometry) {
+    // 标绘
     graphic = modules.Graphic.fromJSON(geometry);
   } else {
     graphic = modules.Graphic.fromJSON({ geometry });
@@ -337,7 +338,7 @@ export function GIS(_: __esri.MapView) {
         });
         this.layer['sketchVM'] = this.sketchVM;
 
-        this.onEvent.onMove((graphics) => {
+        this.onEvent.onMove(null, (graphics) => {
           this.sketchVM.state != 'active' &&
             this.sketchVM.update(graphics, {
               tool: activeTool,

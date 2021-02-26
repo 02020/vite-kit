@@ -2,19 +2,18 @@
 
 ## arcgis-js-api 地址
 
-| 来源   | 地址                                                 | 说明 |
-| ------ | ---------------------------------------------------- | ---- |
-| 8868   | http://www.ztgis.com:8868/arcgis_js_api/library/4.15 | -    |
-| 本机   | http://g.com/esri/4.15                               | -    |
-| 第三方 | https://app.gdeei.cn/arcgis-js-api/library/4.14      | -    |
+| 来源   | 地址                                                    | 说明 |
+| ------ | ------------------------------------------------------- | ---- |
+| 8868   | http://www.ztgis.com:8868/arcgis_js_api/library/4.15    | -    |
+| 本机   | http://g.com/esri/4.15                                  | -    |
+| 第三方 | https://app.gdeei.cn/arcgis-js-api/library/4.14         | -    |
+| 发布部署   | http://222.76.242.134/arcgis_js_api/library/3.32compact | -    |
 
 ## Token 申请地址
 
 [http://222.76.242.138/arcgis/tokens/](http://222.76.242.138/arcgis/tokens/)
 
-
-
-## 对原生esri-arcgis-api-4.15进行封装
+## 对原生 esri-arcgis-api-4.15 进行封装
 
 https://github.com/Esri/esri-loader#examples
 
@@ -23,7 +22,6 @@ https://github.com/Esri/esri-loader#examples
 `npm install --save esri-loader`
 
 ```ts
-
 import { loadModules } from 'esri-loader';
 loadScript({
   url: `${baseUrl}/init.js`,
@@ -58,5 +56,4 @@ loadModules(['esri/views/MapView', 'esri/WebMap'])
     // handle any errors
     console.error(err);
   });
-
 ```

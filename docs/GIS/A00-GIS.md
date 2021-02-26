@@ -1,11 +1,5 @@
 # 简单示例
 
-<gis-demo />
-
-<Code>
- <<< docs\.vitepress\components\GIS\demo.vue
-</Code>
-
 ## 示例代码-01
 
 ### 0101-入口文件

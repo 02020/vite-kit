@@ -1,18 +1,8 @@
 /** @format */
 
 import { loadScript } from 'esri-loader';
-import {
-  EsriBus,
-  arcgis,
-  initModules,
-  modules,
-  goTo,
-  viewEvents,
-  formatToPoint,
-  emitter,
-  axios,
-} from './core';
-import { createSymbol, GIS, createColor, Index } from './common';
+import { EsriBus, arcgis, initModules, modules, goTo, viewEvents, emitter, axios } from './core';
+import { createSymbol, GIS, createColor, Index, shapeStrategy } from './common';
 import withWidgets, { menu } from './ui';
 import * as config from './config';
 // import { flyTo } from './core/esri-api';
@@ -31,13 +21,14 @@ import {
 
 import * as shared from '../shared';
 
+// 合并方法
 const utils = { ...shared, ...config };
 
 class App extends EsriBus {
   static help: () => void;
   static Index: typeof Index;
   static shared: any;
-  private view: any;
+  private view: __esri.MapView;
   private gis: any;
 
   public $u: any = utils;
@@ -93,21 +84,14 @@ class App extends EsriBus {
     if (param && param.axios) {
       this.axios = axios(param.axios);
     }
-
-    !!param &&
-      emitter.on('loaded', () => {
-        this.initMapView(param);
-      });
   }
 
   public async init(param: any): Promise<any> {
     const { url, fontsUrl, srCode } = param;
-    let __param = {};
-    if (srCode === 'xiamen92') {
-      Object.assign(__param, config.setting, config.init92, param);
-    } else {
-      Object.assign(__param, config.setting, config.init2000, param);
-    }
+    const flag = srCode === 'xiamen92';
+    let __param = { extent: '' };
+
+    Object.assign(__param, config.setting, flag ? config.init92 : config.init2000, param);
 
     if (!!url) {
       await App.initArcGisJsApi(url);
@@ -117,7 +101,6 @@ class App extends EsriBus {
     }
 
     await this.initMapView(__param);
-
     return this;
   }
 
@@ -127,21 +110,9 @@ class App extends EsriBus {
    */
   public async initMapView(param: any): Promise<any> {
     this.mapViewOption = param;
-    const {
-      token,
-      extent,
-      zoom,
-      center,
-      wkid,
-      country,
-      layerList,
-      container,
-      wkt,
-      tileInfo,
-      widgets,
-    } = param;
+    const { token, wkid, country, layerList, container, wkt, widgets } = param;
 
-    const spatialReference: any = new modules.SpatialReference({ wkid, wkt }); //
+    const spatialReference: any = new modules.SpatialReference({ wkid, wkt });
 
     const baseLayers = initBaseLayers({ spatialReference, country, layerList, token });
 
@@ -155,39 +126,24 @@ class App extends EsriBus {
       },
     });
 
-    // : __esri.MapViewProperties =
-    const viewProperties: any = { container, map };
-
-    if (tileInfo == false) {
-    } else {
-      // 2000 坐标系统
-      viewProperties.spatialReference = spatialReference;
-    }
-
-    if (extent) {
-      viewProperties.extent = new modules.Extent(formatToPoint(extent));
-    }
-
-    zoom && (viewProperties.zoom = zoom);
-    if (center) {
-      let centers = center.split(',').map(parseFloat);
-      viewProperties.center = new modules.Point({
-        longitude: centers[0],
-        latitude: centers[1],
-        spatialReference,
-      });
-    }
-
-    // 弹窗配置
-    viewProperties.popup = config.popup;
-
+    const viewProperties = config.getViewProperties(param, { container, map, spatialReference });
     this.view = await arcgis.createMapView(viewProperties);
     this.mapViewOption.spatialReference = this.view.spatialReference;
     this.withWidgets(widgets);
+
+    // 地图事件接入
     viewEvents(this);
+
+    // 需要等待视图加载完成，再执行其他操作
+    if (baseLayers.length) {
+      await this.view.when();
+    }
+
+    this.view.goTo(viewProperties.extent);
+
+    // GIS 工具
     this.gis = GIS(this.view);
     this.emit('init', this.view);
-
     return this;
   }
 
@@ -197,17 +153,6 @@ class App extends EsriBus {
     withWidgets(this.view, this.widgets, widgets || {});
     return this.widgets;
   }
-
-  // async addBase(country: any) {
-  //   const baseLayers = initBaseLayers({
-  //     spatialReference: this.view.spatialReference,
-  //     country,
-  //     layerList: [],
-  //     token:""
-  //   });
-  //   let layer = await arcgis.createLayers(baseLayers);
-  //   this.view.map.addMany(layer, 0);
-  // }
 
   initMenu(list: any) {
     this.menu = menu(this.view, list);
@@ -241,6 +186,13 @@ class App extends EsriBus {
   public withFontsUrl(url: string) {
     if (!url) return;
     modules.config.fontsUrl = url;
+    return this
+  }
+
+  // 配置代理路径
+  public withProxyRule({ urlPrefix, proxyUrl }) {
+    modules.urlUtils.addProxyRule({ urlPrefix, proxyUrl });
+    return this
   }
 
   // 获取图层
@@ -356,7 +308,7 @@ class App extends EsriBus {
     return new ShapeLayer(this, id, symbol);
   }
 
-  public createSketch(param?: string | SketchViewModelProperties) {
+  public createSketch(param?: string) {
     return new Sketch(this.view, param);
   }
 

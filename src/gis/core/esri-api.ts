@@ -455,7 +455,8 @@ export async function createLayer<T extends __esri.Layer>(
         await layer.load();
         const tile = (layer as unknown) as __esri.TileLayer;
         for (const sublayer of sublayers) {
-          const subl = tile.sublayers.find((l) => l.id === sublayer.id);
+          const subl = tile.sublayers.find((l) => l.id === (sublayer.id * 1));
+          if(!subl) return
           subl.title = sublayer.title;
           subl.legendEnabled = sublayer.legendEnabled;
           subl.popupEnabled = sublayer.popupEnabled;

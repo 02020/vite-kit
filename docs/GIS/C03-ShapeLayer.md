@@ -30,7 +30,7 @@ new ShapeLayer(id, symbol)
 ## 方法
 | 方法名    | 说明               | 入参                    |
 | --------- | ------------------ | ----------------------- |
-| add       | 增加图形           | [geometry,attrs,symbol] |
+| add       | 增加图形           | [geometry,attrs?,symbol?] |
 | addMany   | 增加多个图形       | geometryList            |
 | update    | ?                  | -                       |
 | delete    | 根据id删除图形     | 图形id()                |
@@ -52,7 +52,7 @@ new ShapeLayer(id, symbol)
 add addMany removeAll remove
 
 
-```javascript
+```ts
 const symbol = gis.createSymbol(2, 'solid', '#f00', '#cfc')
 const layer = gis.createShapeLayer('temp', symbol)
 
@@ -70,6 +70,51 @@ const list = [{ x:"",y:"", id:"uid" }]
 layer.addMany(list)
  
 layer.delete("uid")
+ 
+
+```
+
+#### ddd
+```ts
+var symbol = gis.createSymbol(2, 'cross-cross', '#2e4e7e', '#c93756');
+var layer = gis.createShapeLayer('temp', symbol);
+data.forEach(function (x) {
+  return layer.add(x.geometry, x.txBsm);
+});
+layer.goTo();
+```
+
+
+#### demo
+```ts
+
+// 面
+export const __polygon = (gis, layer) => {
+  Array.from([
+    'none',
+    'solid',
+    'backward-diagonal',
+    'cross-cross',
+    'diagonal-cross',
+    'forward-diagonal',
+    'horizontal',
+    'vertical',
+  ]).forEach((item) => {
+    let attrs = {
+      title: +new Date(),
+      key1: 'value2',
+    };
+
+
+    let g = layer.add({ rings }, attrs);
+
+    g.symbol = gis.createSymbol(2, item, '#f00', '#cfc');
+
+    rings[0].forEach((x) => {
+      x[0] += 0.016;
+    });
+  });
+};
 
 
 ```

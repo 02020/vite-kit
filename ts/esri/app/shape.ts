@@ -6,13 +6,13 @@ import Polyline from 'esri/geometry/Polyline';
 import Polygon from 'esri/geometry/Polygon';
 import SimpleFillSymbol from 'esri/symbols/SimpleFillSymbol';
 
-import { view, spatialReference } from './main';
+import { view,  } from './main';
 
 const layer = new GraphicsLayer();
 view.map.add(layer);
 
 let geometry = new Polygon({
-  spatialReference,
+  // spatialReference,
 });
 
 let points = [

@@ -24,3 +24,22 @@ https://www.html5plus.org/doc/zh_cn/geolocation.html
 `npm install @dcloudio/uni-ui`
 
 [定位 uni.getLocation](https://uniapp.dcloud.io/api/location/location)
+
+
+
+uni-app
+跨域
+https://ask.dcloud.net.cn/article/35267
+https://juejin.cn/post/6844904063855755271
+
+VUE中sockjs-node/info?t= 跨域报错问题解决
+https://blog.csdn.net/weixin_45633422/article/details/107994309
+
+
+
+[内网穿透](http://wxgis.cn.utools.club/#/pages/wx/login)
+
+
+微信  80端口  wx.ztgis.com 
+
+vuex_wx_user

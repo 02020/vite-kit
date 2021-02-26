@@ -7,18 +7,22 @@
       v-for="item in actionList"
       :key="item.key"
       @click="onClick(item)"
-    >{{item.title}}</div>
+    >
+      {{ item.title }}
+    </div>
   </div>
 
-  <div class="flex space-x-1 p-1 rounded" v-show="logs.length" ref="logs">{{logs}}</div>
+  <div class="flex space-x-1 p-1 rounded" v-show="logs.length" ref="logs">
+    {{ logs }}
+  </div>
 </template>
 
 <script>
 import GIS from './_init'
 import { geo, point, rings, paths } from './data'
 let shape = null,
-  shapePoint = null, 
-  index = 0;
+  shapePoint = null,
+  index = 0
 const actionList = [
   {
     key: 'clear',
@@ -37,6 +41,7 @@ const actionList = [
   { key: 'create', title: '创建点' },
   { key: 'update1', title: '更新点' },
   { key: 'update2', title: '更新样式' },
+  { key: 'default', title: '默认样式' },
 ]
 
 export default {
@@ -103,6 +108,14 @@ export default {
       if (index >= list.length) {
         index = 0
       }
+    },
+    // 根据图形类型配置默认样式
+    default() {
+      this.gis.shape("temp").withPoint({ x: 118.141, y: 24.45 }).withSymbol('default').goTo().build()
+
+      this.gis.shape("temp").withPoint({ rings }).withSymbol('default').goTo().build()
+
+      this.gis.shape("temp").withPoint({ paths }).withSymbol('default').goTo().build()
     },
   },
   mounted() {

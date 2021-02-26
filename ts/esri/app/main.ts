@@ -1,79 +1,49 @@
-/** @format */
+import api from './esri-api';
+import utils from './utils';
 
-import EsriMap from 'esri/Map';
-import MapView from 'esri/views/MapView';
-import Basemap from 'esri/Basemap';
-import MapImageLayer from 'esri/layers/MapImageLayer';
-import TileLayer from 'esri/layers/TileLayer';
-import IdentityManager from 'esri/identity/IdentityManager';
+//  'http://222.76.242.138/arcgis/rest/services/XM92/DEM_CVA/MapServer',
+// 'http://222.76.242.138/arcgis/rest/services/XM92/DOMMAP/MapServer',
+// 'http://222.76.242.138/arcgis/rest/services/XMD92/DOM2014W/MapServer'
+// 'http://222.76.242.138/arcgis/rest/services/XM92/XMMAP/MapServer'
+// 'http://222.76.242.138/arcgis/rest/services/XM92/LMP/MapServer',
 
-import SpatialReference from 'esri/geometry/SpatialReference';
-import Point from 'esri/geometry/Point';
-
-let url =
-  'http://222.76.242.138/arcgis/rest/services/Metadata/JTB_ALL/MapServer';
-
-const imageryLayer = new MapImageLayer({
-  imageFormat: 'png32',
-  // compressionQuality: 100,
-  // dpi :300,
-  sublayers: [
-    { visible: true, id: 0 },
-    { visible: true, id: 1 },
-    { visible: false, id: 2 },
-    { visible: false, id: 3 },
-    { visible: false, id: 4 },
-  ],
-  url,
-});
-
-var layList = [
-  'http://222.76.242.138/arcgis/rest/services/CGCS_XMMAP/MapServer',
-  'http://222.76.242.138/arcgis/rest/services/CGCS_XMMAP_CVA/MapServer',
+const layList1 = [
+  // { type: 'tile', url: "http://172.28.3.16/arcgis/rest/services/XM92/XMMAP/MapServer" },
+  { type: 'tile', url: 'http://172.28.3.16/arcgis/rest/services/XM92/DOMMAP/MapServer' },
+  // { type: 'tile', url: "http://172.28.3.16/arcgis/rest/services/XM92/LMP/MapServer" },
+  { type: 'feature', url: 'http://172.28.3.16/arcgis/rest/services/XM92/TRA/MapServer/0' },
+  {
+    type: 'map-image',
+    url: 'http://172.28.3.16/arcgis/rest/services/Metadata/JTB_ALL/MapServer',
+    imageFormat: 'png32',
+    // compressionQuality: 100,
+    // dpi :300,
+    sublayers: [{ visible: true, id: 0 }],
+  },
+  {
+    type: 'map-image',
+    url: 'http://172.28.3.16/arcgis/rest/services/Metadata/JTB_ALL/MapServer',
+    imageFormat: 'png32',
+    sublayers: [{ visible: true, id: 1 }],
+  },
 ];
 
-const basemap = new Basemap({
-  title: 'basemap',
-  id: 'basemap',
-  baseLayers: layList.map((url) => {
-    return new TileLayer({ url });
-  }),
-});
 
-const token =   '';
 
-layList.forEach((url) => {
-  IdentityManager.registerToken({
-    server: url,
-    token,
-  });
-});
+const layList = [
+  {type:'tile',url:'http://172.28.3.16/arcgis/rest/services/CGCS_DEMMAP_CVA/MapServer'},
+  { type: 'tile', url: 'http://172.28.3.16/arcgis/rest/services/CGCS_DOM2019J3W/MapServer' },
+  {type:'tile',url:'http://172.28.3.16/arcgis/rest/services/CGCS_XMMAP/MapServer'},
+]
+const token = 'X6U01kWOBorRwcJnfe_bcRq3xg-Wa2lc5cR1nVlOWceQOvYne4oDJt7YqQpjjzgm29OqAwlZwYcBbqYFSNljPA..'
 
-const map = new EsriMap({
-  basemap,
-});
 
-setTimeout(() => {
-  map.add(imageryLayer);
-}, 3000);
+// 'floYmDT6L7eLKPd11ZOjthtrBYbbmVakhyyKmbkGnZ2T_v8vCA8LTtIQjzrCj9cB';
+//
+utils.registerToken(layList, token);
 
-const spatialReference = new SpatialReference({
-  wkid: 4490,
-});
-
-const point = new Point({
-  x: 118.06,
-  y: 24.444,
-  spatialReference: spatialReference,
-});
-
-const view = new MapView({
-  map: map,
-  container: 'viewDiv',
-  // center: [118.06, 24.444],  // 定位不生效
-  center: point, // 需要采用 spatialReference
-  zoom: 6,
-  spatialReference,
+const view = api.createMapView(layList, {
+  zoom: 4,
 });
 
 view.when(() => {
@@ -86,4 +56,21 @@ view.when(() => {
   });
 });
 
-export { view, spatialReference };
+ 
+/*
+
+
+
+*/
+
+// const measurement = new Measurement({
+//   view: view,
+//   activeTool: "distance"
+// });
+// view.ui.add(measurement, "top-right");
+
+// setTimeout(() => {
+//   measurement.activeTool = 'area';
+// }, 3000);
+
+export { view };

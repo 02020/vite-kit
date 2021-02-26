@@ -38,9 +38,7 @@ export class FeatureLayerRenderer {
    */
   withJSON(rendererJSON: any) {
     if (!!rendererJSON) {
-      this.featureLayer.renderer = modules.UniqueValueRenderer.fromJSON(
-        rendererJSON
-      );
+      this.featureLayer.renderer = modules.UniqueValueRenderer.fromJSON(rendererJSON);
     }
     return this;
   }
@@ -84,8 +82,8 @@ export class FeatureLayerRenderer {
     this.shapes = shapes;
     this.graphics = graphics;
 
-    // this.featureLayer.fields = fields;
-    // this.featureLayer.source = graphics;
+    this.featureLayer.fields = fields;
+    this.featureLayer.source = graphics;
     return this;
   }
 
@@ -115,13 +113,18 @@ export class FeatureLayerRenderer {
    */
   withPopup(title: any) {
     this.featureLayer.popupEnabled = true;
-    let fieldInfos = this.featureLayer.fields.map((x) => {
-      return { fieldName: x.name, label: x.name };
-    });
+
+    let content = null;
+    if (Array.isArray(this.featureLayer.fields)) {
+      let fieldInfos = this.featureLayer.fields.map((x) => {
+        return { fieldName: x.name, label: x.name };
+      });
+      content = [{ type: 'fields', fieldInfos }];
+    }
 
     this.featureLayer.popupTemplate = new modules.PopupTemplate({
       title: title,
-      content: [{ type: 'fields', fieldInfos }],
+      content,
       outFields: ['*'],
     });
 
@@ -158,11 +161,7 @@ export class FeatureLayerRenderer {
    * @param symbol 样式
    * @param only 是否清空之前
    */
-  withRenderer(
-    value: string | number | any,
-    symbol?: __esri.Symbol | any,
-    only?: boolean
-  ) {
+  withRenderer(value: string | number | any, symbol?: __esri.Symbol | any, only?: boolean) {
     !!only && this.removeUniqueValueInfo();
     let renderer = this.featureLayer.renderer as __esri.UniqueValueRenderer;
 
@@ -250,6 +249,7 @@ export class FeatureLayerRenderer {
    * 定位
    */
   goTo(oid: any) {
+    if(!oid) return this;
     this.view.goTo(this.filter(oid));
     return this;
   }
@@ -372,8 +372,7 @@ export class ShapeRenderer extends FeatureLayerRenderer {
   withUniqueValue(tableData) {
     this.rendererType = 'unique';
 
-    const defaultSymbol = tableData.find((x) => x.value == this.DEFAULT_NAME)
-      .symbol;
+    const defaultSymbol = tableData.find((x) => x.value == this.DEFAULT_NAME).symbol;
     const values2 = tableData
       .filter((x) => x.enable && x.symbol && x.value != this.DEFAULT_NAME)
       .map((x) => {
@@ -438,9 +437,7 @@ export class ShapeRenderer extends FeatureLayerRenderer {
       first = f.labelingInfo[0];
 
     // todo 标注默认样式
-    let labelName = !!first
-      ? first.labelExpressionInfo.expression.replace('$feature.', '')
-      : '';
+    let labelName = !!first ? first.labelExpressionInfo.expression.replace('$feature.', '') : '';
 
     const lastParams = {
       rendererType: this.rendererType, // 样式类型
@@ -468,10 +465,7 @@ export class ShapeRenderer extends FeatureLayerRenderer {
 
     const renderer = this.featureLayer.renderer as __esri.UniqueValueRenderer;
 
-    m.set(
-      this.DEFAULT_NAME,
-      createRow(this.DEFAULT_NAME, true, this.defaultSymbol)
-    );
+    m.set(this.DEFAULT_NAME, createRow(this.DEFAULT_NAME, true, this.defaultSymbol));
     //     renderer.uniqueValueInfos
     this.valueInfos.forEach((x) => {
       m.set(x.value, createRow(x.value, true, x.symbol));

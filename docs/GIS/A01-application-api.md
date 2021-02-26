@@ -17,7 +17,7 @@ new GIS(properties?:any);
 
 | 方法名              | 说明                 | 入参                                | 返回   |
 | ------------------- | -------------------- | ----------------------------------- | ------ |
-| initMapView         | 加载地图             | [详见](../GIS/index.md)             | -      |
+| initMapView         | 加载地图             | [详见](../GIS/A02-index.md)         | -      |
 | initMenu            | 加载右键菜单         | [详见](#initMenu)                   | -      |
 | initUI              | 加载 UI 组件         | -                                   | 已挂载 |
 | add                 | 增加图层             | [](#add)                            | -      |
@@ -38,37 +38,52 @@ new GIS(properties?:any);
 | createShapeRenderer | Shape 文件上传解析   | [详见 ](../GIS/goTo.md)             | -      |
 | withFontsUrl        | 配置本地字体路径     | [详见 ](#withFontsUrl)              | -      |
 
-### 相关入参
+## 入参
 
-#### initMapView
-
-#### initMenu
+### initMenu 右键菜单
 
 ```ts
 const list = [
   {
-    label: '编辑',
+    label: '编辑1',
     iconClass: 'dijitEditorIcon ion-ios-checkmark-outline',
     onClick: console.log,
   },
   {
-    label: '编辑11',
+    label: '编辑2',
     iconClass: 'dijitEditorIcon ion-ios-checkmark-outline',
     onClick: console.log,
   },
 ];
+gis.initMenu(list);
 ```
 
-### add
+### add 图层新增
 
 ```ts
-gis.add({ id: "temp", type: "graphics" });
+// graphics
+gis.add({ id: 'temp', type: 'graphics' });
 
+// feature 编辑
+const layerData = {
+  id: 'edit',
+  type: 'feature',
+  url: 'http://www.ztgis.com:6080/arcgis/rest/services/fs_edit_xm92/FeatureServer/1',
+};
+
+gis.add(layerData).then((...args) => {
+  editor = gis.widthEditor('edit', fieldConfig);
+});
+```
+
+#### add 动态图层
+
+```ts
 gis.add({
   id: 'image01',
   url: 'http://222.76.242.138/arcgis/rest/services/ZTT/SPFLP/MapServer';,
   type: 'map-image',
-  group: 'test',
+  group: 'test',  //  一个图层只能属于一个组
 });
 
 // 接图表的地图服务存在问题, 只能控制一个图层的显示
@@ -83,21 +98,11 @@ gis.add({
   token: '',
 });
 
-const layerData = {
-  id: 'edit',
-  type: 'feature',
-  url:
-    'http://www.ztgis.com:6080/arcgis/rest/services/fs_edit_xm92/FeatureServer/1',
-}
-
-gis.add(layerData).then((...args) => {
-  editor = gis.widthEditor('edit', fieldConfig)
-})
-
-
 ```
 
-### update
+### update 更新
+
+一个图层只能属于一个组
 
 ```ts
 // 修改图层顺次
@@ -120,12 +125,10 @@ const methods = {
 
     this.gis.update({ ids: id, visible: checked, opacity: slider / 100 });
   },
-}
-
-
+};
 ```
 
-### withFontsUrl
+### withFontsUrl 字体路径配置
 
 配置本地字体路径
 `http://g.com/esri/fonts/`
@@ -133,5 +136,4 @@ const methods = {
 
 ```ts
 let emojis = ['🔥', '⏲️', '🏆', '🍉'];
-
 ```

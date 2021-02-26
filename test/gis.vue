@@ -1,18 +1,20 @@
  <script>
-import Sketch from './gis/single/Sketch.vue'
-import Draw from './gis/single/Draw.vue'
-import HelloGIS from './gis/HelloGIS.vue'
-import Symbol from './gis/single/Symbol.vue'
-import Shape from './gis/single/Shape.vue'
-import Test from './gis/Test.vue'
+import { ref } from 'vue';
+import Sketch from './gis/single/Sketch.vue';
+import Draw from './gis/single/Draw.vue';
+import HelloGIS from './gis/HelloGIS.vue';
+import Symbol from './gis/single/Symbol.vue';
+import Shape from './gis/single/Shape.vue';
+import Test from './gis/Test.vue';
 
-import ShapePopup from './gis/ShapePopup.vue'
-import EventsHitTest from './gis/EventsHitTest.vue'
-import Layer from './gis/single/Layer.vue'
-import ShapeLayer from './gis/single/ShapeLayer.vue'
-import PrintTask from './gis/single/PrintTask.vue'
-import GIS from './gis92'
-import Mark from './gis/Mark.vue'
+import ShapePopup from './gis/ShapePopup.vue';
+import EventsHitTest from './gis/EventsHitTest.vue';
+import Layer from './gis/single/Layer.vue';
+import ShapeLayer from './gis/single/ShapeLayer.vue';
+import PrintTask from './gis/single/PrintTask.vue';
+// import GIS from './gis/92'
+import GIS from './gis/2000';
+import Mark from './gis/Mark.vue';
 
 export default {
   name: 'TestGIS',
@@ -33,19 +35,22 @@ export default {
   data() {
     return {
       visible: false,
-    }
+    };
   },
   beforeCreate() {
-    console.log('beforeCreate')
-    GIS()
+    console.log('beforeCreate');
+    GIS();
   },
   mounted() {
+    console.log('mounted',this);
+    const count = ref(0);
+    console.log(count);
     gis.on('init', () => {
-      console.log('init')
-      // this.visible = true
-    })
+      console.log('init');
+      this.visible = true;
+    });
   },
-}
+};
 </script>
 
 <template>

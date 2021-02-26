@@ -35,3 +35,16 @@ export const formatToPoint = (pt: any) => {
     return { x, y };
   }
 };
+
+
+/*
+    const { xmax, xmin, ymax, ymin } = extent;
+    let graphic = shapeStrategy(this.view).polyline([
+      [xmin, ymin],
+      [xmin, ymax],
+      [xmax, ymax],
+      [xmax, ymin],
+      [xmin, ymin],
+    ]);
+
+*/

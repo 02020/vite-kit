@@ -48,8 +48,6 @@ import { values } from 'lodash-es';
  
 import { functionApply, invokeFns, collectionHandlers } from './fn';
 
-export * from './object'
-
 export const includesEnum = (list: Record<any, any>, val: number | string) => {
   return values(list).includes(val as any);
 };

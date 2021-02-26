@@ -21,21 +21,15 @@ module.exports = {
     repo: 'VITE',
     docsDir: 'docs',
     nav: [
-      { text: '指南', link: '/guide/' },
-      { text: '库', link: '/shared/' },
       { text: 'GIS', link: '/GIS/' },
       // { text: 'Vue3', link: '/Vue3/' },
-      { text: 'fext', link: '/fext/' },
+      // { text: 'fext', link: '/fext/' },
       { text: 'uni-app', link: '/uni-app/' },
     ],
 
     sidebar: {
       '/': [{ text: '首页', link: '/' }],
       '/guide/': guide,
-      '/shared/': [
-        { text: '首页', link: '/shared/index' },
-        { text: '对象', link: '/shared/Object' },
-      ],
       // '/fext/': fext,  // 目录层级 失效
       '/GIS/': GIS,
       '/uni-app/': [

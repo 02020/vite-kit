@@ -5,9 +5,9 @@ module.exports = [
     text: 'GIS',
     children: [
       { text: '全局 API', link: '/GIS/A02-index' },
-      { text: 'GIS 引用包', link: '/GIS/A09-modules' },
+      // { text: 'GIS 引用包', link: '/GIS/A09-modules' },
       { text: '应用API', link: '/GIS/A01-application-api' },
-      { text: '枚举 Index', link: '/GIS/A03-enum-type' },
+      // { text: '枚举 Index', link: '/GIS/A03-enum-type' },
       { text: '事件 event', link: '/GIS/A04-event' },
       { text: '定位 goTo', link: '/GIS/A11-goTo' },
     ],
